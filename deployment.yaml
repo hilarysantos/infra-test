@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ name: infra-test
+spec:
+ selector:
+    matchLabels:
+      app: infra-test
+ replicas: 1
+ template:
+    metadata:
+      labels:
+        app: infra-test
+    spec:
+      containers:
+      - name: infra-test
+        image: hilarysantos/infra-test
+        ports:
+        - containerPort: 3000
